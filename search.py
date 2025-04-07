@@ -1,8 +1,9 @@
 import sys
 from graph import Graph
 from algorithms.a_star import AStar
+from algorithms.custom1 import Custom1
 from algorithms.custom2 import Custom2
-
+from algorithms.dfs import DepthFirstSearch
 
 def main():
     if len(sys.argv) < 3:
@@ -25,6 +26,10 @@ def main():
         algorithm = AStar(graph)
     elif method == "CUS2":
         algorithm = Custom2(graph)
+    elif method == "DFS":
+        algorithm = DepthFirstSearch(graph)
+    elif method == "CUS1":
+        algorithm = Custom1(graph)
     else:
         print(f"Method {method} not supported yet.")
         return

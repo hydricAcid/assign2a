@@ -7,7 +7,7 @@ class Graph:
 
     def parse_input(self, filename):
         """Parse input file and construct the graph"""
-        with open(filename, "r") as file:
+        with open(f"TestCases/{filename}", "r") as file:
             lines = file.readlines()
             mode = None
 
@@ -68,3 +68,7 @@ class Graph:
     def is_destination(self, node):
         """Check if node is a destination"""
         return node in self.destinations
+
+    def get_total_nodes(self):
+        # gets total number of nodes in the graph
+        return len(self.nodes)
