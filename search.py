@@ -4,6 +4,7 @@ from algorithms.a_star import AStar
 from algorithms.custom1 import Custom1
 from algorithms.custom2 import Custom2
 from algorithms.dfs import DepthFirstSearch
+from algorithms.GBFS import GreedyBestFirstSearch
 
 def main():
     if len(sys.argv) < 3:
@@ -30,6 +31,9 @@ def main():
         algorithm = DepthFirstSearch(graph)
     elif method == "CUS1":
         algorithm = Custom1(graph)
+    elif method == "GBFS":
+        algorithm = GreedyBestFirstSearch(graph)
+        method = "GreedyBestFirstSearch"
     else:
         print(f"Method {method} not supported yet.")
         return
