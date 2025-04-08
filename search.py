@@ -42,7 +42,7 @@ def main():
     if path:
         goal = path[-1]
         print(f"{goal} {num_nodes}")
-        print(" -> ".join(map(str, path)))
+        print(f"[{','.join(map(str, path))}]")
     else:
         print("No path found")
 
