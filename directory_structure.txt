@@ -1,0 +1,7 @@
+├── search.py          
+├── graph.py           
+└── algorithms/
+    ├── __init__.py    
+    ├── search_algorithm.py  
+    ├── a_star.py      
+    └── custom2.py    
