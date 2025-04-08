@@ -4,5 +4,5 @@ for assignment 2a of COS30019
 usage:
 
 ```
-search.py <filename> <method>
+python3 search.py <filename> <method>
 ```
