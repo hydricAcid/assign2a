@@ -5,3 +5,5 @@
     ├── search_algorithm.py  
     ├── a_star.py      
     └── custom2.py    
+    └── custom1.py
+    └── dfs.py
