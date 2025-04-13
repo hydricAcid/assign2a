@@ -31,7 +31,7 @@ def generateGraph(nodeCount,minX,maxX,minY,maxY,minEdge,maxEdge,maxCost,minCost,
                     currentX = XcoordList[coordCount]
                     currentY = YcoordList[coordCount]
 
-                    if currentX == randomX and currentY == randomY:
+                    if currentX == randomX and currentY == randomY: # checks if coords are already occupied
                         validCoords = False
                     coordCount += 1
                     
@@ -65,11 +65,11 @@ def generateGraph(nodeCount,minX,maxX,minY,maxY,minEdge,maxEdge,maxCost,minCost,
                 if len(edgeList) != 0:
 
                     randomNode = nodeList[r.randint(0,(len(nodeList) - 1 ))]
-                    if obj.number != randomNode.number:
+                    if obj.number != randomNode.number: # checks if the start and end are the same node
                         validEdge = True
 
                     for edge in edgeList:
-                        if edge.start == obj.number and edge.end == randomNode.number:
+                        if edge.start == obj.number and edge.end == randomNode.number: # checks if edge already exists
                             validEdge = False
                         
                     if validEdge:
@@ -119,17 +119,17 @@ if __name__ == "__main__":
     miny = int(input("mix y: "))
     maxy = int(input("max y: "))
 
-    if ((maxx-minx)*(maxy-miny)) < nodecount:
+    if ((maxx-minx)*(maxy-miny)) < nodecount: # checks if total size is large enough to fit the graph
         print("plane too small")
         exit()
 
-    minCost = int(input("min edge cost: "))
+    minCost = int(input("min edge cost: ")) 
     maxCost = int(input("max edge cost: "))
     
     minEdge = int(input("min edge amount per node: "))
     maxEdge = int(input("max edge amount per node: "))
 
-    if maxEdge > nodecount:
+    if maxEdge > nodecount: # checks if the number of edges could be greater than the number of nodes
         print("too many possible edges for a node")
         exit()
 
