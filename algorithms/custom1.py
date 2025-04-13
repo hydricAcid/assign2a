@@ -23,5 +23,5 @@ class Custom1(SearchAlgorithm):
 
             depth += 1 
 
-            if depth > self.graph.get_total_nodes():
+            if depth > self.graph.get_total_nodes(): # just in case there is no destination, prevents from running forever
                 return None, self.node_count

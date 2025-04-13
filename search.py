@@ -40,7 +40,6 @@ def main():
         algorithm = Custom1(graph)
     elif method == "GBFS":
         algorithm = GreedyBestFirstSearch(graph)
-        method = "GreedyBestFirstSearch"
     else:
         lines.append(f"Method {method} not supported yet.")
         return lines

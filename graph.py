@@ -9,12 +9,13 @@ class Graph:
 
     def parse_input(self, filename):
         """Parse input file and construct the graph"""
-        if os.path.exists(f"{filename}"): # will check three places for the file: same directory
+        
+        if os.path.exists(f"{filename}"): # check if file exists
             filepath = f"{filename}"
-        if os.path.exists(f"TestCases/{filename}"): # in TestCases directory
-            filepath = f"TestCases/{filename}"
-        if os.path.exists(f"testCaseMaker/autoTestCases/{filename}"): # in autoTestCases directory
-            filepath = f"testCaseMaker/autoTestCases/{filename}"
+        else:
+            print("File not found, aborting")
+            exit()
+
         
         with open(filepath, "r") as file:
             lines = file.readlines()

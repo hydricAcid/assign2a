@@ -1,5 +1,13 @@
 ├── search.py          
-├── graph.py           
+├── graph.py
+└── log.txt      
+└── TestCases/
+└── otherlogs/
+└── testCaseMaker/
+    └── testcasemaker.py
+    └── edge.py
+    └── node.py
+    └── autoTestCases/     
 └── algorithms/
     ├── __init__.py    
     ├── search_algorithm.py  
@@ -7,3 +15,5 @@
     └── custom2.py    
     └── custom1.py
     └── dfs.py
+    └── bfs.py
+    └── GBFS.py

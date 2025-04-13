@@ -18,10 +18,11 @@ class DepthFirstSearch(SearchAlgorithm):
 
         while stack:
             current_node, path, current_depth = stack.pop()
+            self.node_count += 1
             if current_node in visited:
                 continue
             visited.add(current_node)
-            self.node_count += 1
+            
 
             if self.is_goal(current_node):
                 return path, self.node_count
