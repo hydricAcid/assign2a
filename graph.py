@@ -1,3 +1,5 @@
+import os
+
 class Graph:
     def __init__(self):
         self.nodes = {}  # node_id -> (x, y)
@@ -7,7 +9,14 @@ class Graph:
 
     def parse_input(self, filename):
         """Parse input file and construct the graph"""
-        with open(f"TestCases/{filename}", "r") as file:
+        if os.path.exists(f"{filename}"): # will check three places for the file: same directory
+            filepath = f"{filename}"
+        if os.path.exists(f"TestCases/{filename}"): # in TestCases directory
+            filepath = f"TestCases/{filename}"
+        if os.path.exists(f"testCaseMaker/autoTestCases/{filename}"): # in autoTestCases directory
+            filepath = f"testCaseMaker/autoTestCases/{filename}"
+        
+        with open(filepath, "r") as file:
             lines = file.readlines()
             mode = None
 

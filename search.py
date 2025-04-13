@@ -1,4 +1,6 @@
 import sys
+import time as t
+import tracemalloc as tr
 from graph import Graph
 from algorithms.a_star import AStar
 from algorithms.custom1 import Custom1
@@ -7,6 +9,7 @@ from algorithms.dfs import DepthFirstSearch
 from algorithms.GBFS import GreedyBestFirstSearch
 
 def main():
+    lines = []
     if len(sys.argv) < 3:
         print("Usage: python search.py <filename> <method> [goal_preference]")
         return
@@ -35,21 +38,43 @@ def main():
         algorithm = GreedyBestFirstSearch(graph)
         method = "GreedyBestFirstSearch"
     else:
-        print(f"Method {method} not supported yet.")
-        return
+        lines.append(f"Method {method} not supported yet.")
+        return lines
 
     # Run algorithm and get results
     path, num_nodes = algorithm.search()
 
     # Print results
-    print(f"{filename} {method}")
+    
+    lines.append(f"{filename} {method}")
     if path:
         goal = path[-1]
-        print(f"{goal} {num_nodes}")
-        print(f"[{','.join(map(str, path))}]")
+        lines.append(f"{goal} {num_nodes}")
+        lines.append(f"[{','.join(map(str, path))}]")
     else:
-        print("No path found")
+        lines.append("No path found")
+    return lines
 
 
 if __name__ == "__main__":
-    main()
+    startTime = t.time() # runtime and memory measuring
+    tr.start()
+
+    lines = main()
+
+    endTime = t.time()
+    memUse = tr.get_traced_memory()
+    tr.stop()
+
+    for c in lines:
+        print(c)
+
+    lines.append(f"Memory Usage: {memUse}")
+    lines.append(f"Execution Time: {(endTime-startTime) * 10**3} ms")
+
+    f = open("log.txt", "a") # writes verbose information to a log file
+    f.write("----------NEW ENTRY----------\n")
+    for c in lines:
+        f.write(str(c))
+        f.write("\n")
+    f.close()
